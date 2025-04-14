@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-primary: #fff9f3;
+    --color-secondary: #353839;
+
+    --color-primary-dark: #171616;
+    --color-secondary-dark: oklch(94.5% 0.129 101.54);
+
+    --shadow-xl: 0 0 5px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 0 5px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 0 5px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@layer base {
+    h1 {
+        @apply text-2xl text-secondary font-light font-serif dark:text-secondary-dark;
+    }
+    h2 {
+        @apply text-xl text-secondary font-light font-serif dark:text-secondary-dark;
+    }
+    p, li {
+        @apply text-base text-secondary font-normal font-sans dark:text-secondary-dark ;
+    }
+    svg {
+        @apply text-secondary dark:text-secondary-dark;
+    }
+    img {
+        @apply rounded-3xl border-2 border-secondary dark:border-secondary-dark transition-all duration-300 ease-in-out;
+    }
+}
+
+@layer components {
+    .content {
+        @apply min-w-[350px] bg-transparent mx-auto p-10 border-2 border-secondary dark:border-secondary-dark flex flex-col gap-8 items-center shadow-xl shadow-secondary/80 dark:shadow-secondary-dark/80 text-center;
+    }
+    
+    .logo {
+        @apply border-1 rounded-lg;
+    }
+
+    .interactive {
+        @apply cursor-pointer hover:opacity-80 hover:-translate-y-1 hover:shadow-md hover:shadow-secondary dark:hover:shadow-secondary-dark transition-all duration-300 ease-in-out;
+    }
+
+    .description {
+        @apply text-justify;  
+    }
+}
